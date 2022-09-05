@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import Navbar from "../components/Navbar";
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
                     <img className="h-full w-full object-cover" src={require("../assets/wallpaper.jpg")} alt=""/>
                 </div>
                 <div className="flex flex-col h-[50vh] md:h-[90vh] md:w-[50vw] justify-center items-center text-white tracking-widest">
-                    <div className="duration-300 hover:scale-[1.25] hover:duration-300 text-6xl lg:text-8xl mb-5 space-y-2 text-center mb-8 md:mb-26 mt-2 md:mt-0">
+                    <div className="text-6xl lg:text-8xl mb-5 space-y-2 text-center mb-8 md:mb-26 mt-2 md:mt-0">
                         <h1>SONO</h1>
                         <h1>K</h1>
                         <h1>DANCE</h1>
