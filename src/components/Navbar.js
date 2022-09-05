@@ -11,27 +11,25 @@ const style = {
 
 
 const Navbar = () => {
-    const [buttonVisible, setButtonVisible] = useState(document.body.clientWidth <= 768);
+    const [buttonVisible, setButtonVisible] = useState(document.body.clientWidth < 768);
     const [ulButtonActive, setUlButtonActive] = useState(false);
 
-    const checkButton = () => {
-        if (document.body.clientWidth <= 768) {
-            setButtonVisible(true);
-            if (ulButtonActive ? document.getElementById("ul").className = style.ulButton : document.getElementById("ul").className = style.ulInvisible) ;
-        } else {
-            setButtonVisible(false);
-            setUlButtonActive(false)
-            document.getElementById("ul").className = style.ulNormal;
-        }
-    }
-
     useEffect(() => {
-        window.addEventListener("resize", checkButton);
+        window.addEventListener("resize", () => {
+            if (document.body.clientWidth < 768) {
+                setButtonVisible(true);
+                if (ulButtonActive ? document.getElementById("ul").className = style.ulButton : document.getElementById("ul").className = style.ulInvisible) ;
+            } else {
+                setButtonVisible(false);
+                setUlButtonActive(false)
+                document.getElementById("ul").className = style.ulNormal;
+            }
+        });
     })
 
     return (
         <div className="h-[10%] w-full flex items-center justify-between border-b-[0.5px] bg-black">
-            <img className="w-[10vh] md:w-[17vh] bg-cover" src={require("../assets/logo.png")} alt=""/>
+            <img onClick={() => {window.location.replace("/")}} className="w-[10vh] md:w-[17vh] bg-cover cursor-pointer" src={require("../assets/logo.png")} alt=""/>
             <ul id="ul"
                 className={buttonVisible ? (ulButtonActive ? style.ulButton : style.ulInvisible) : style.ulNormal}>
                 <NavLink to={"/"} className={activePage("/")}>

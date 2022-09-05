@@ -24,7 +24,7 @@ const Gallery = () => {
                     {images.images.map(image => {
                         return (
                             <div className="flex p-10">
-                                <img className="h-[25vh]" key={image.indexOf()} src={image} alt=""/>
+                                <img className="h-[25vh] hover:scale-125 hover:duration-100 duration-100 object-cover" key={image.indexOf()} src={image} alt=""/>
                             </div>
                         );
                     })}
